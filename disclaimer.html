@@ -1,3 +1,4 @@
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -5,68 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Disclaimer | Vindhya Infotech</title>
     <meta name="description" content="Vindhya Infotech disclaimer page." />
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <style>
-      .gradient {
-        background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
-      }
-    </style>
+    <link rel="stylesheet" href="main.css" />
   </head>
-  <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
-    <nav id="header" class="fixed w-full z-30 top-0 text-white bg-white shadow">
-      <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
-        <div class="pl-4 flex items-center">
-          <a class="flex items-center gap-3 text-black no-underline hover:no-underline font-bold" href="index.html#home">
-            <img src="images/vindhya-logo-transparent.png" alt="Vindhya Infotech" class="h-14 w-auto lg:h-16" />
-            <span class="text-2xl lg:text-4xl leading-none">Vindhya Infotech</span>
-          </a>
-        </div>
-        <div class="pr-4">
-          <a class="inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full py-3 px-6 shadow-lg" href="index.html#contact">Contact</a>
-        </div>
+  <body class="legal-page">
+    <header class="site-header">
+      <div class="container site-header__bar">
+        <a class="brand" href="index.html#home" aria-label="Vindhya Infotech home">
+          <img class="brand__logo" src="images/vindhya-logo-transparent.png" alt="Vindhya Infotech" />
+          <span class="brand__text">
+            <span class="brand__name">Vindhya Infotech</span>
+            <span class="brand__tagline">Computer repair, networking, and CCTV support</span>
+          </span>
+        </a>
+        <nav class="site-nav site-nav--desktop" aria-label="Legal navigation">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
       </div>
-    </nav>
-    <main class="pt-24">
-      <section class="py-16">
-        <div class="container mx-auto px-4 max-w-4xl">
-          <div class="rounded-3xl bg-white shadow-2xl overflow-hidden">
-            <div class="gradient px-8 py-12 text-center">
-              <p class="uppercase tracking-widest text-white text-sm mb-3">Legal</p>
-              <h1 class="text-4xl md:text-5xl font-bold">Disclaimer</h1>
-            </div>
-            <div class="px-8 py-10 text-gray-700 space-y-6">
-              <p class="text-lg leading-relaxed">
-                The information on this website is provided for general service awareness and customer convenience. While we aim to keep all service details accurate and up to date, Vindhya Infotech does not guarantee that every description, pricing reference, response time, or availability note will always remain current.
-              </p>
-              <div>
-                <h2 class="text-2xl font-bold text-gray-800 mb-3">Service Information</h2>
-                <p class="text-lg leading-relaxed">
-                  All repair, networking, CCTV, and support information shown on this site is intended as a broad overview of our services. Actual diagnosis, estimated completion time, parts availability, and final service charges may vary depending on the device condition, location, and service requirements.
-                </p>
-              </div>
-              <div>
-                <h2 class="text-2xl font-bold text-gray-800 mb-3">External Platforms</h2>
-                <p class="text-lg leading-relaxed">
-                  Links to WhatsApp, Instagram, YouTube, maps, or any third-party platform are provided for convenience. We are not responsible for the content, privacy practices, or service interruptions of external websites or apps.
-                </p>
-              </div>
-              <div>
-                <h2 class="text-2xl font-bold text-gray-800 mb-3">No Guaranteed Outcomes</h2>
-                <p class="text-lg leading-relaxed">
-                  Vindhya Infotech makes reasonable efforts to deliver dependable technical support, but every repair or troubleshooting case is unique. We cannot guarantee recovery of all data, restoration of all hardware faults, or uninterrupted performance after every service request.
-                </p>
-              </div>
-            </div>
+    </header>
+
+    <main class="legal-page__main">
+      <section class="container">
+        <div class="legal-card">
+          <div class="legal-card__hero">
+            <p>Legal</p>
+            <h1>Disclaimer</h1>
+          </div>
+          <div class="legal-card__body">
+            <p>The information on this website is provided for general service awareness and customer convenience. While we aim to keep all service details accurate and up to date, Vindhya Infotech does not guarantee that every description, pricing reference, response time, or availability note will always remain current.</p>
+
+            <section>
+              <h2>Service Information</h2>
+              <p>All repair, networking, CCTV, and support information shown on this site is intended as a broad overview of our services. Actual diagnosis, estimated completion time, parts availability, and final service charges may vary depending on the device condition, location, and service requirements.</p>
+            </section>
+
+            <section>
+              <h2>External Platforms</h2>
+              <p>Links to WhatsApp, Instagram, YouTube, maps, or any third-party platform are provided for convenience. We are not responsible for the content, privacy practices, or service interruptions of external websites or apps.</p>
+            </section>
+
+            <section>
+              <h2>No Guaranteed Outcomes</h2>
+              <p>Vindhya Infotech makes reasonable efforts to deliver dependable technical support, but every repair or troubleshooting case is unique. We cannot guarantee recovery of all data, restoration of all hardware faults, or uninterrupted performance after every service request.</p>
+            </section>
           </div>
         </div>
       </section>
     </main>
-    <footer class="bg-white text-gray-600">
-      <div class="container mx-auto px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p>Copyright (c) 2026 Vindhya Infotech. All rights reserved.</p>
-        <a href="index.html#home" class="font-bold text-pink-600 hover:underline">Back to Home</a>
+
+    <footer class="site-footer">
+      <div class="container footer-shell">
+        <div class="footer-meta">
+          <p>Copyright (c) 2026 Vindhya Infotech. All rights reserved.</p>
+          <a href="index.html#home">Back to Home</a>
+        </div>
       </div>
     </footer>
   </body>

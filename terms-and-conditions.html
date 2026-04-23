@@ -1,3 +1,4 @@
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -5,76 +6,73 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Terms and Conditions | Vindhya Infotech</title>
     <meta name="description" content="Vindhya Infotech terms and conditions page." />
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <style>
-      .gradient {
-        background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
-      }
-    </style>
+    <link rel="stylesheet" href="main.css" />
   </head>
-  <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
-    <nav id="header" class="fixed w-full z-30 top-0 text-white bg-white shadow">
-      <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
-        <div class="pl-4 flex items-center">
-          <a class="flex items-center gap-3 text-black no-underline hover:no-underline font-bold" href="index.html#home">
-            <img src="images/vindhya-logo-transparent.png" alt="Vindhya Infotech" class="h-14 w-auto lg:h-16" />
-            <span class="text-2xl lg:text-4xl leading-none">Vindhya Infotech</span>
-          </a>
-        </div>
-        <div class="pr-4">
-          <a class="inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full py-3 px-6 shadow-lg" href="index.html#contact">Contact</a>
-        </div>
+  <body class="legal-page">
+    <header class="site-header">
+      <div class="container site-header__bar">
+        <a class="brand" href="index.html#home" aria-label="Vindhya Infotech home">
+          <img class="brand__logo" src="images/vindhya-logo-transparent.png" alt="Vindhya Infotech" />
+          <span class="brand__text">
+            <span class="brand__name">Vindhya Infotech</span>
+            <span class="brand__tagline">Computer repair, networking, and CCTV support</span>
+          </span>
+        </a>
+        <nav class="site-nav site-nav--desktop" aria-label="Legal navigation">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
       </div>
-    </nav>
-    <main class="pt-24">
-      <section class="py-16">
-        <div class="container mx-auto px-4 max-w-4xl">
-          <div class="rounded-3xl bg-white shadow-2xl overflow-hidden">
-            <div class="gradient px-8 py-12 text-center">
-              <p class="uppercase tracking-widest text-white text-sm mb-3">Legal</p>
-              <h1 class="text-4xl md:text-5xl font-bold">Terms and Conditions</h1>
-            </div>
-            <div class="px-8 py-10 text-gray-700 space-y-6">
-              <p class="text-lg leading-relaxed">
-                By using this website or contacting Vindhya Infotech for support, you agree to the general terms below. These terms help set clear expectations around technical service, support timelines, payments, and customer responsibility.
-              </p>
-              <div>
-                <h2 class="text-2xl font-bold text-gray-800 mb-3">Service Scope</h2>
-                <p class="text-lg leading-relaxed">
-                  Vindhya Infotech provides computer repair, software troubleshooting, data support, networking assistance, CCTV installation, and related technical services. Final service recommendations may depend on device inspection, on-site conditions, and parts availability.
-                </p>
-              </div>
-              <div>
-                <h2 class="text-2xl font-bold text-gray-800 mb-3">Customer Responsibility</h2>
-                <ul class="list-disc pl-6 space-y-2 text-lg leading-relaxed">
-                  <li>Customers should share accurate issue details before service begins</li>
-                  <li>Customers are encouraged to maintain their own important data backup before repair</li>
-                  <li>Access to premises, systems, or devices should be provided as needed for diagnosis and support</li>
-                </ul>
-              </div>
-              <div>
-                <h2 class="text-2xl font-bold text-gray-800 mb-3">Payments and Quotes</h2>
-                <p class="text-lg leading-relaxed">
-                  Any price shared through the website, phone, or WhatsApp is indicative unless confirmed after inspection. Final charges may vary depending on labor, replacement parts, travel, urgency, or additional work approved by the customer.
-                </p>
-              </div>
-              <div>
-                <h2 class="text-2xl font-bold text-gray-800 mb-3">Warranty and Limitations</h2>
-                <p class="text-lg leading-relaxed">
-                  Any service warranty, if offered, will depend on the type of repair or installation completed. Vindhya Infotech is not responsible for pre-existing faults, third-party software issues, or indirect losses arising from delayed service, hardware failure, or data loss.
-                </p>
-              </div>
-            </div>
+    </header>
+
+    <main class="legal-page__main">
+      <section class="container">
+        <div class="legal-card">
+          <div class="legal-card__hero">
+            <p>Legal</p>
+            <h1>Terms and Conditions</h1>
+          </div>
+          <div class="legal-card__body">
+            <p>By using this website or contacting Vindhya Infotech for support, you agree to the general terms below. These terms help set clear expectations around technical service, support timelines, payments, and customer responsibility.</p>
+
+            <section>
+              <h2>Service Scope</h2>
+              <p>Vindhya Infotech provides computer repair, software troubleshooting, data support, networking assistance, CCTV installation, and related technical services. Final service recommendations may depend on device inspection, on-site conditions, and parts availability.</p>
+            </section>
+
+            <section>
+              <h2>Customer Responsibility</h2>
+              <ul class="legal-list">
+                <li>Customers should share accurate issue details before service begins</li>
+                <li>Customers are encouraged to maintain their own important data backup before repair</li>
+                <li>Access to premises, systems, or devices should be provided as needed for diagnosis and support</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Payments and Quotes</h2>
+              <p>Any price shared through the website, phone, or WhatsApp is indicative unless confirmed after inspection. Final charges may vary depending on labor, replacement parts, travel, urgency, or additional work approved by the customer.</p>
+            </section>
+
+            <section>
+              <h2>Warranty and Limitations</h2>
+              <p>Any service warranty, if offered, will depend on the type of repair or installation completed. Vindhya Infotech is not responsible for pre-existing faults, third-party software issues, or indirect losses arising from delayed service, hardware failure, or data loss.</p>
+            </section>
           </div>
         </div>
       </section>
     </main>
-    <footer class="bg-white text-gray-600">
-      <div class="container mx-auto px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p>Copyright (c) 2026 Vindhya Infotech. All rights reserved.</p>
-        <a href="index.html#home" class="font-bold text-pink-600 hover:underline">Back to Home</a>
+
+    <footer class="site-footer">
+      <div class="container footer-shell">
+        <div class="footer-meta">
+          <p>Copyright (c) 2026 Vindhya Infotech. All rights reserved.</p>
+          <a href="index.html#home">Back to Home</a>
+        </div>
       </div>
     </footer>
   </body>
