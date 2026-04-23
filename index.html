@@ -15,7 +15,7 @@
   </head>
   <body class="site-body">
     <header class="site-header">
-      <div class="container site-header__bar">
+      <div class="container site-header__bar flex items-center justify-between gap-4">
         <a class="brand" href="#home" aria-label="Vindhya Infotech home">
           <img class="brand__logo" src="images/vindhya-logo-transparent.png" alt="Vindhya Infotech" />
           <span class="brand__text">
@@ -28,7 +28,7 @@
           <span class="nav-toggle__icon"><span></span></span>
         </button>
 
-        <nav class="site-nav site-nav--desktop" aria-label="Primary navigation">
+        <nav class="site-nav site-nav--desktop flex items-center gap-2" aria-label="Primary navigation">
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#services">Services</a>
@@ -38,7 +38,7 @@
         </nav>
       </div>
 
-      <nav class="site-nav site-nav--mobile container" id="mobile-nav" aria-label="Mobile navigation">
+      <nav class="site-nav site-nav--mobile container flex flex-col gap-2" id="mobile-nav" aria-label="Mobile navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -50,16 +50,16 @@
 
     <main>
       <section class="hero" id="home">
-        <div class="container hero__grid">
-          <div class="hero__content">
+        <div class="container hero__grid grid gap-10 items-center">
+          <div class="hero__content flex flex-col">
             <p class="hero__eyebrow"><i class="fa-solid fa-screwdriver-wrench"></i> Computer repair and IT support</p>
             <h1 class="hero__title">Vindhya Infotech,<strong>where fixing technical problems becomes easy to deal with.</strong></h1>
             <p class="hero__copy">Fast repairs, clean maintenance, and responsive support for home and office devices.</p>
-            <div class="hero__actions">
+            <div class="hero__actions flex flex-wrap gap-4">
               <a class="btn btn--light" href="#services">Explore Services</a>
               <a class="btn btn--ghost" href="#contact">Book a Repair</a>
             </div>
-            <div class="hero__stats" aria-label="Service highlights">
+            <div class="hero__stats grid gap-4" aria-label="Service highlights">
               <div class="stat-card">
                 <strong>24x7</strong>
                 <span>support</span>
@@ -90,8 +90,8 @@
 
           <div class="about-grid">
             <div class="panel">
-              <h3 class="section__title" style="font-size: 1.8rem; text-align: left;">Who we are</h3>
-              <p class="section__copy" style="text-align: left; margin: 0.8rem 0 0;">We also offer remote IT support, CCTV installation, NVR/DVR setup, surveillance maintenance, on-site assistance, and regular system upkeep to keep your technology secure and running smoothly.</p>
+              <h3 class="section__title text-3xl text-left">Who we are</h3>
+              <p class="section__copy text-left mt-4">We also offer remote IT support, CCTV installation, NVR/DVR setup, surveillance maintenance, on-site assistance, and regular system upkeep to keep your technology secure and running smoothly.</p>
 
               <ul class="about-list">
                 <li><i class="fa-solid fa-circle-check"></i><span>Clear diagnosis and practical repair guidance.</span></li>
@@ -102,7 +102,7 @@
             </div>
 
             <div class="panel panel--soft">
-              <h3 class="section__title" style="font-size: 1.8rem; text-align: left;">What we handle most often</h3>
+              <h3 class="section__title text-3xl text-left">What we handle most often</h3>
               <div class="contact-points">
                 <div class="contact-point"><i class="fa-solid fa-laptop"></i><span>Laptop and desktop troubleshooting</span></div>
                 <div class="contact-point"><i class="fa-solid fa-database"></i><span>Data recovery and backup setup</span></div>
@@ -110,7 +110,7 @@
                 <div class="contact-point"><i class="fa-solid fa-video"></i><span>CCTV, NVR, and DVR installation</span></div>
                 <div class="contact-point"><i class="fa-solid fa-headset"></i><span>Remote troubleshooting and quick assistance</span></div>
               </div>
-              <div style="margin-top: 1.5rem;">
+              <div class="mt-6">
                 <a class="btn btn--dark" href="#contact">Get in touch</a>
               </div>
             </div>
@@ -326,15 +326,15 @@
           </div>
 
           <div class="contact-grid">
-            <div class="panel contact-panel">
+          <div class="panel contact-panel flex flex-col gap-4">
               <div>
-                <h3 class="section__title" style="font-size: 1.8rem; text-align: left;">Quick support</h3>
-                <p class="section__copy" style="text-align: left; margin: 0.8rem 0 0;">We can help with repairs, remote support, network setup, CCTV installation, and regular maintenance for home and business devices.</p>
+                <h3 class="section__title text-3xl text-left">Quick support</h3>
+                <p class="section__copy text-left mt-4">We can help with repairs, remote support, network setup, CCTV installation, and regular maintenance for home and business devices.</p>
               </div>
 
-              <div class="contact-action-row">
-                <a class="btn btn--dark" href="https://wa.me/9183278779" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp"><i class="fa-brands fa-whatsapp" style="margin-right: 0.55rem;"></i>WhatsApp</a>
-                <a class="btn btn--light" href="tel:9183278779" aria-label="Call Vindhya Infotech"><i class="fa-solid fa-phone" style="margin-right: 0.55rem;"></i>Call now</a>
+              <div class="contact-action-row flex flex-wrap gap-4">
+                <a class="btn btn--dark" href="https://wa.me/9183278779" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp"><i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp</a>
+                <a class="btn btn--light" href="tel:9183278779" aria-label="Call Vindhya Infotech"><i class="fa-solid fa-phone mr-2"></i>Call now</a>
               </div>
 
               <div class="contact-points">
@@ -345,14 +345,14 @@
             </div>
 
             <div class="panel panel--soft">
-              <h3 class="section__title" style="font-size: 1.8rem; text-align: left;">What happens next</h3>
+              <h3 class="section__title text-3xl text-left">What happens next</h3>
               <div class="contact-points">
                 <div class="contact-point"><span class="contact-step">1</span><span>Share the device issue or installation need.</span></div>
                 <div class="contact-point"><span class="contact-step">2</span><span>We suggest the quickest support route.</span></div>
                 <div class="contact-point"><span class="contact-step">3</span><span>Repair, visit, or remote help is scheduled.</span></div>
                 <div class="contact-point"><span class="contact-step">4</span><span>You get clear follow-up until the job is done.</span></div>
               </div>
-              <div style="margin-top: 1.5rem;">
+              <div class="mt-6">
                 <a class="btn btn--dark" href="#home">Back to top</a>
               </div>
             </div>
@@ -363,7 +363,7 @@
 
     <footer class="site-footer">
       <div class="container footer-shell">
-        <div class="footer-meta">
+        <div class="footer-meta flex flex-wrap items-center justify-between gap-4">
           <ul class="footer-links">
             <li><a href="disclaimer.html">Disclaimer</a></li>
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
