@@ -1,5 +1,6 @@
 const header = document.querySelector(".header");
-const menu = document.querySelector(".menu-bar .bar");
+const menu = document.querySelector(".menu-bar");
+const menuIcon = document.querySelector(".menu-bar .bar");
 const navbar = document.querySelector(".righted-header");
 const items = document.querySelectorAll(".righted-header .righted-navbar .nav-item");
 const desktopItems = document.querySelectorAll(".header .right-side .item");
@@ -15,7 +16,9 @@ let scrollTicking = false;
 function toggleMenu(forceState) {
   isOpen = typeof forceState === "boolean" ? forceState : !isOpen;
 
-  menu.classList.toggle("open", isOpen);
+  if (menuIcon) {
+    menuIcon.classList.toggle("open", isOpen);
+  }
   navbar.classList.toggle("righted", isOpen);
   document.body.classList.toggle("menu-open", isOpen);
 }
@@ -25,14 +28,18 @@ function checkScroll() {
     return;
   }
 
-  if (window.scrollY >= 120) {
+if (window.scrollY >= 120) {
     header.classList.add("nav-bar-scroll");
-    menu.classList.add("navbar-color");
+    if (menuIcon) {
+      menuIcon.classList.add("navbar-color");
+    }
     return;
   }
 
   header.classList.remove("nav-bar-scroll");
-  menu.classList.remove("navbar-color");
+  if (menuIcon) {
+    menuIcon.classList.remove("navbar-color");
+  }
 }
 
 function getHeaderOffset() {
