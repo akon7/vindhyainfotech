@@ -6,3 +6,4 @@
 
 .header .header-content .container .header-navbar .menu-bar{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;margin-left:auto;padding:0;border:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;z-index:10032}.header .header-content .container .header-navbar .menu-bar .bar{margin:0 auto}
 @media (max-width:576px){.header .header-content .container .header-navbar .menu-bar{width:52px;height:52px}}
+.service-areas-copy{max-width:820px;color:rgba(26,27,30,.72);line-height:1.8rem}.service-areas .badge{padding:.7rem .95rem;font-size:.92rem;font-weight:700;letter-spacing:.01em}
