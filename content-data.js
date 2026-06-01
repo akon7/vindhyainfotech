@@ -44,80 +44,73 @@ window.VINHYA_CONTENT = {
   "reviews": [
     {
       "initials": "SV",
-      "name": "S. Verma",
+      "name": "Shivram Verma",
       "service": "Software optimization",
       "rating": 5,
       "desc": "A slow desktop was cleaned up, optimized, and updated with the required software setup. Performance improved noticeably for daily office work."
     },
     {
-      "initials": "PG",
-      "name": "P. Gupta",
+      "initials": "UG",
+      "name": "Uma Gupta",
       "service": "Virus removal",
       "rating": 5,
       "desc": "The system had pop-ups and suspicious software activity. Malware was removed, security settings were improved, and the device became safe to use again."
     },
     {
       "initials": "NT",
-      "name": "N. Tiwari",
+      "name": "Neeraj Tiwari",
       "service": "Wi-Fi setup",
       "rating": 5,
       "desc": "Home internet coverage was uneven across rooms. Router settings were adjusted and the network was made more stable for regular family use."
     },
     {
-      "initials": "VS",
-      "name": "V. Shukla",
+      "initials": "SS",
+      "name": "Smita Shukla",
       "service": "CCTV installation",
       "rating": 5,
       "desc": "Needed a reliable CCTV setup for property monitoring. Camera placement, wiring, and recorder setup were handled neatly with working live view support."
     },
     {
-      "initials": "KS",
-      "name": "K. Singh",
+      "initials": "KP",
+      "name": "Kapil Singh",
       "service": "Desktop troubleshooting",
       "rating": 5,
       "desc": "A work computer was facing frequent freezes and restart problems. The issue was diagnosed properly and the machine was brought back to dependable condition."
     },
     {
       "initials": "MD",
-      "name": "M. Dubey",
+      "name": "Mehak Dubey",
       "service": "Backup setup",
       "rating": 5,
       "desc": "Wanted a safer way to store personal and office files. A backup setup was arranged with simple guidance so regular backups became easier to manage."
     },
     {
-      "initials": "TA",
-      "name": "T. Agrawal",
+      "initials": "SG",
+      "name": "Saras Agrawal",
       "service": "Office network support",
       "rating": 5,
-      "desc": "An office connection issue was affecting daily work. Network settings and router configuration were corrected to restore a smoother workflow."
+      "desc": "An office connection issue was affecting daily online cafe work. Network settings and router configuration were corrected to restore a smoother workflow."
     },
     {
-      "initials": "DJ",
-      "name": "D. Jain",
+      "initials": "AJ",
+      "name": "Dr. Ankit Jain",
       "service": "DVR service",
       "rating": 5,
-      "desc": "The recorder system needed servicing and camera feed checks. DVR performance was restored and monitoring became more reliable afterward."
+      "desc": "The recorder system needed servicing and camera feed checks at clinic. DVR performance was restored and monitoring became more reliable afterward."
     },
     {
-      "initials": "HS",
-      "name": "H. Soni",
+      "initials": "SJ",
+      "name": "Sujeet Soni",
       "service": "On-site maintenance",
       "rating": 5,
       "desc": "Requested doorstep support for multiple systems at home. Basic maintenance, cleanup, and issue checks were completed in a single visit."
     },
     {
-      "initials": "YS",
-      "name": "Y. Saxena",
+      "initials": "PG",
+      "name": "Pradeep Gupta",
       "service": "Security setup",
       "rating": 5,
       "desc": "Needed stronger protection for a frequently used computer. Security tools, updates, and safe-use settings were configured for better day-to-day protection."
-    },
-    {
-      "initials": "GBTR",
-      "name": "dhggh",
-      "service": "rbrtb",
-      "rating": 5,
-      "desc": "tgtrgtr"
     }
   ],
   "clients": [
