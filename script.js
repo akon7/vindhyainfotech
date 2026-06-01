@@ -11,6 +11,7 @@ const quickLinksMenu = document.querySelector("#footerQuickLinksMenu");
 const sections = document.querySelectorAll("section[id], div[id], footer[id]");
 const serviceGrid = document.querySelector(".section-services .services-content .row");
 const reviewsWrapper = document.querySelector(".section-reviews .reviews .swiper-wrapper");
+const clientGrid = document.querySelector("#clientGrid");
 
 let isOpen = false;
 let scrollTicking = false;
@@ -129,7 +130,10 @@ function getManagedContent() {
   try {
     const draft = JSON.parse(localStorage.getItem("vindhyaContentDraft") || "null");
 
-    if (draft && (Array.isArray(draft.services) || Array.isArray(draft.reviews))) {
+    if (
+      draft &&
+      (Array.isArray(draft.services) || Array.isArray(draft.reviews) || Array.isArray(draft.clients))
+    ) {
       return draft;
     }
   } catch {
@@ -197,11 +201,67 @@ function renderManagedReviews(reviews) {
     .join("");
 }
 
+function safeImageSource(value) {
+  const source = String(value || "").trim();
+
+  if (!source) {
+    return "";
+  }
+
+  if (/^(https?:)?\/\//i.test(source) || /^images\//i.test(source) || /^\.{0,2}\//.test(source)) {
+    return source.replaceAll('"', "%22");
+  }
+
+  if (/^[a-z0-9][a-z0-9._\-\s/]*\.(png|jpe?g|webp|gif|svg)$/i.test(source)) {
+    return `images/${source}`.replaceAll('"', "%22");
+  }
+
+  return "";
+}
+
+function initialsFromName(name) {
+  return String(name || "Client")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part.charAt(0).toUpperCase())
+    .join("");
+}
+
+function renderManagedClients(clients) {
+  if (!clientGrid || !Array.isArray(clients)) {
+    return;
+  }
+
+  if (!clients.length) {
+    clientGrid.innerHTML = '<div class="col-12 text-center text-muted fw-bold">Client logos can be added from the admin panel.</div>';
+    return;
+  }
+
+  clientGrid.innerHTML = clients
+    .map((client) => {
+      const name = escapeHtml(client.name || "Client");
+      const logo = safeImageSource(client.logo);
+      const logoMarkup = logo
+        ? `<img src="${logo}" alt="${name} logo" loading="lazy" decoding="async">`
+        : `<span>${escapeHtml(initialsFromName(client.name))}</span>`;
+
+      return `
+        <div class="client-card">
+          <div class="client-logo">${logoMarkup}</div>
+          <p class="client-name mb-0">${name}</p>
+        </div>
+      `;
+    })
+    .join("");
+}
+
 function renderManagedContent() {
   const content = getManagedContent();
 
   renderManagedServices(content.services);
   renderManagedReviews(content.reviews);
+  renderManagedClients(content.clients);
 }
 
 function handleScroll() {

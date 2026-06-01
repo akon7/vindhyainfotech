@@ -126,5 +126,6 @@ window.VINHYA_CONTENT = {
       "rating": 5,
       "desc": "Needed stronger protection for a frequently used computer. Security tools, updates, and safe-use settings were configured for better day-to-day protection."
     }
-  ]
+  ],
+  "clients": []
 };

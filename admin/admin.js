@@ -23,6 +23,15 @@ const els = {
   reviewCancelBtn: document.getElementById("reviewCancelBtn"),
   reviewList: document.getElementById("reviewList"),
   reviewCount: document.getElementById("reviewCount"),
+  clientForm: document.getElementById("clientForm"),
+  clientEditIndex: document.getElementById("clientEditIndex"),
+  clientName: document.getElementById("clientName"),
+  clientLogo: document.getElementById("clientLogo"),
+  clientEditingLabel: document.getElementById("clientEditingLabel"),
+  clientSubmitBtn: document.getElementById("clientSubmitBtn"),
+  clientCancelBtn: document.getElementById("clientCancelBtn"),
+  clientList: document.getElementById("clientList"),
+  clientCount: document.getElementById("clientCount"),
   downloadJsBtn: document.getElementById("downloadJsBtn"),
   downloadJsonBtn: document.getElementById("downloadJsonBtn"),
   copyJsonBtn: document.getElementById("copyJsonBtn"),
@@ -44,6 +53,7 @@ function normalizeContent(value) {
   return {
     services: Array.isArray(value.services) ? value.services : [],
     reviews: Array.isArray(value.reviews) ? value.reviews : [],
+    clients: Array.isArray(value.clients) ? value.clients : [],
   };
 }
 
@@ -76,8 +86,10 @@ function starsMarkup(rating) {
 function render() {
   renderServices();
   renderReviews();
+  renderClients();
   els.serviceCount.textContent = String(content.services.length);
   els.reviewCount.textContent = String(content.reviews.length);
+  els.clientCount.textContent = String(content.clients.length);
 }
 
 function renderServices() {
@@ -136,6 +148,34 @@ function renderReviews() {
     : '<p class="text-muted mb-0">No reviews yet.</p>';
 }
 
+function renderClients() {
+  els.clientList.innerHTML = content.clients.length
+    ? content.clients
+        .map(
+          (item, index) => `
+            <article class="admin-item">
+              <div class="d-flex justify-content-between align-items-start gap-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="admin-client-logo">${clientLogoMarkup(item)}</div>
+                  <div>
+                    <p class="admin-item-kicker mb-1">Client ${index + 1}</p>
+                    <h3 class="admin-item-title mb-1">${escapeHtml(item.name || "")}</h3>
+                    <p class="admin-item-meta mb-0">${escapeHtml(item.logo || "No logo path")}</p>
+                  </div>
+                </div>
+                <span class="admin-pill">Logo</span>
+              </div>
+              <div class="admin-item-actions mt-3">
+                <button class="btn btn-sm btn-outline-primary" type="button" data-action="edit-client" data-index="${index}">Edit</button>
+                <button class="btn btn-sm btn-outline-danger" type="button" data-action="delete-client" data-index="${index}">Delete</button>
+              </div>
+            </article>
+          `
+        )
+        .join("")
+    : '<p class="text-muted mb-0">No clients yet.</p>';
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -143,6 +183,40 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+function safeImageSource(value) {
+  const source = String(value || "").trim();
+
+  if (/^(https?:)?\/\//i.test(source) || /^images\//i.test(source) || /^\.{0,2}\//.test(source)) {
+    return source.replaceAll('"', "%22");
+  }
+
+  if (/^[a-z0-9][a-z0-9._\-\s/]*\.(png|jpe?g|webp|gif|svg)$/i.test(source)) {
+    return `../images/${source}`.replaceAll('"', "%22");
+  }
+
+  return "";
+}
+
+function clientLogoMarkup(item) {
+  const logo = safeImageSource(item.logo);
+  const name = escapeHtml(item.name || "Client");
+
+  if (logo) {
+    return `<img src="${logo}" alt="${name} logo" loading="lazy" decoding="async">`;
+  }
+
+  return `<span>${escapeHtml(initialsFromName(item.name))}</span>`;
+}
+
+function initialsFromName(name) {
+  return String(name || "Client")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part.charAt(0).toUpperCase())
+    .join("");
 }
 
 function clearServiceForm() {
@@ -165,6 +239,15 @@ function clearReviewForm() {
   els.reviewEditingLabel.textContent = "Adding a new review";
   els.reviewSubmitBtn.textContent = "Add review";
   els.reviewForm.classList.remove("is-editing");
+}
+
+function clearClientForm() {
+  els.clientEditIndex.value = "";
+  els.clientName.value = "";
+  els.clientLogo.value = "";
+  els.clientEditingLabel.textContent = "Adding a new client";
+  els.clientSubmitBtn.textContent = "Add client";
+  els.clientForm.classList.remove("is-editing");
 }
 
 function fillServiceForm(item, index) {
@@ -193,6 +276,18 @@ function fillReviewForm(item, index) {
   els.reviewForm.scrollIntoView({ behavior: "smooth", block: "start" });
   window.setTimeout(() => els.reviewName.focus(), 350);
   setStatus(`Editing review ${index + 1}. Change the fields, then press Update review.`);
+}
+
+function fillClientForm(item, index) {
+  els.clientEditIndex.value = String(index);
+  els.clientName.value = item.name || "";
+  els.clientLogo.value = item.logo || "";
+  els.clientEditingLabel.textContent = `Editing client ${index + 1}`;
+  els.clientSubmitBtn.textContent = "Update client";
+  els.clientForm.classList.add("is-editing");
+  els.clientForm.scrollIntoView({ behavior: "smooth", block: "start" });
+  window.setTimeout(() => els.clientName.focus(), 350);
+  setStatus(`Editing client ${index + 1}. Change the fields, then press Update client.`);
 }
 
 function addOrUpdateService(event) {
@@ -245,6 +340,29 @@ function addOrUpdateReview(event) {
   render();
 }
 
+function addOrUpdateClient(event) {
+  event.preventDefault();
+  const index = els.clientEditIndex.value === "" ? -1 : Number(els.clientEditIndex.value);
+  const entry = {
+    name: els.clientName.value.trim(),
+    logo: els.clientLogo.value.trim(),
+  };
+
+  let message = "";
+
+  if (index >= 0) {
+    content.clients[index] = entry;
+    message = `Updated client ${index + 1}. Preview the site to check the layout.`;
+  } else {
+    content.clients.push(entry);
+    message = "Added new client. Preview the site to check the layout.";
+  }
+
+  clearClientForm();
+  saveDraft(message);
+  render();
+}
+
 function handleListClick(event) {
   const button = event.target.closest("button[data-action]");
   if (!button) return;
@@ -275,6 +393,19 @@ function handleListClick(event) {
       saveDraft("Review deleted. Preview the site to check the layout.");
       render();
       clearReviewForm();
+    }
+  }
+
+  if (action === "edit-client") {
+    fillClientForm(content.clients[index], index);
+  }
+
+  if (action === "delete-client") {
+    if (window.confirm("Delete this client?")) {
+      content.clients.splice(index, 1);
+      saveDraft("Client deleted. Preview the site to check the layout.");
+      render();
+      clearClientForm();
     }
   }
 }
@@ -333,6 +464,7 @@ async function importFile(file) {
   render();
   clearServiceForm();
   clearReviewForm();
+  clearClientForm();
 }
 
 function resetDraft() {
@@ -344,6 +476,7 @@ function resetDraft() {
   localStorage.removeItem(STORAGE_KEY);
   clearServiceForm();
   clearReviewForm();
+  clearClientForm();
   render();
   setStatus("Draft reset to the bundled content.");
 }
@@ -352,13 +485,17 @@ document.addEventListener("DOMContentLoaded", () => {
   render();
   clearServiceForm();
   clearReviewForm();
+  clearClientForm();
 
   els.serviceForm.addEventListener("submit", addOrUpdateService);
   els.reviewForm.addEventListener("submit", addOrUpdateReview);
+  els.clientForm.addEventListener("submit", addOrUpdateClient);
   els.serviceCancelBtn.addEventListener("click", clearServiceForm);
   els.reviewCancelBtn.addEventListener("click", clearReviewForm);
+  els.clientCancelBtn.addEventListener("click", clearClientForm);
   els.serviceList.addEventListener("click", handleListClick);
   els.reviewList.addEventListener("click", handleListClick);
+  els.clientList.addEventListener("click", handleListClick);
   els.downloadJsonBtn.addEventListener("click", exportJson);
   els.downloadJsBtn.addEventListener("click", exportJs);
   els.copyJsonBtn.addEventListener("click", copyJson);
