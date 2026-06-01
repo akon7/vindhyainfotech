@@ -119,11 +119,7 @@ window.VINHYA_CONTENT = {
       "logo": "git.jpg"
     },
     {
-      "name": "Kamta Traders raghunathganj",
-      "logo": ""
-    },
-    {
-      "name": "palak online",
+      "name": "Palak online & Printing press",
       "logo": ""
     }
   ]
